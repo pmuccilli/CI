@@ -6,6 +6,7 @@ We found different articles about these topics, the most useful was probably “
 Here we acknowledged mainly 2 things:
 Quixo game states could be saved in 8 bytes (watch below)
 It would take around 2 weeks to train a RL algorithm to cover all the possible states
+Quixo is a game that ends in a draw if both player play perfectly
 
 
 
@@ -48,7 +49,30 @@ The challenge involved transitioning from a 3x3 to a 5x5 board. To address this,
 Although the current model already wins against the random player, it doesn’t work well against a human player. The agent was basically “blind” in the first stages of the game since the end of the game would be too far.
 Hence we decided to implement some heuristics to give our agent a clearer direction in earlier stages of the game 
 ## Final agent
-Despite the big improvements we could do more, in fact we noticed that sometimes the agent preferred to block the victory of the opponent who would have won with the next move rather than making the winning move for himself. To solve this problem it was enough to give higher scores to victories with lower depth. Moreover we also took into consideration the quantity of symbols for each player in the diagonals and also the number of 2 or 3 identical symbols on the same line for each line. In conclusions we evaluated higher scores for moves that allowed the insertion of new pieces rather than moving those already present on the board.
+### Heuristics
+Gain points when:
+Add a new tile of its symbol into the board 
+Make a combo (consecutive pieces)
+Winning match
+Lose points when:
+Opponent adds a new tile of its symbol into the board
+Opponent makes a combo
+Opponent wins the match
+
+We gave different scores in order to set a priority between them such as that:
+
+Winning match > add a new tile > make a combo (4 or less)
+
+### Depth
+Depth is the value that sets how many moves ahead the AI can look through.
+Higher values of depth give better results, but also increase execution time, we found the right balance at depth = 4
+
+Note: depth has a higher value the closer the state is to the current state 
+
+When checking if we are in a winning state, a higher score is given to states closer to the current state.
+This is done to ensure that the algorithm ends the game in the minimal amount of move when it finds a winning pattern and that values more short-term victories over long-term loss
+(i.e. if it wins in the next move, it does not have to worry on upcoming loss after 3 moves)
+
 
 
 
