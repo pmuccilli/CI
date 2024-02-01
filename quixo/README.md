@@ -1,3 +1,5 @@
+# Done together with Massimo Porcheddu and Miriam Ivaldi
+
 # State of art
 Before starting we did some research to better understand the game and Quixo strategies.
 Once we had documented about the game we moved on to improve our knowledge of reinforcement-learning algorithms and how these could be applied to the game of Quixo.
