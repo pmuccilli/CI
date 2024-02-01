@@ -15,7 +15,7 @@ It would take around 2 weeks to train a RL algorithm to cover all the possible s
 Hence, we evaluated the option to make a similar RL algorithm with some constraints in order to reduce the number of possible states
 
 # Q-Learning
-Introduction
+## Introduction
 At first we tried emulating what we have seen in the state of art research by developing a Q-Learning algorithm.
 In our experience with Tic-Tac-Toe, it took 6 minutes to train an agent which stored around 3k different states, so before starting developing the code we focused on understanding if it could be a feasible solution.
 
@@ -37,7 +37,7 @@ We realized this was still a really high number and too many things could have g
 
 
 # Min Max
-Introduction
+## Introduction
 First of all, we searched for some resources online and we found an implementation of a min-max algorithm to solve tic-tac-toe game. (https://stackabuse.com/minimax-and-alpha-beta-pruning-in-python/). We tried to adjust this code to Quixo.
 We tested it first on a 3x3 board and we obtained excellent results. We implemented the pruning strategy (alpha-beta strategy) to reduce the execution time (it reduced the execution time from 5 s to 0,5 s).
 
