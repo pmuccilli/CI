@@ -8,6 +8,7 @@ Quixo game states could be saved in 8 bytes (watch below)
 It would take around 2 weeks to train a RL algorithm to cover all the possible states
 Quixo is a game that ends in a draw if both player play perfectly
 
+![Screenshot](./images/1.jpeg)
 
 
 
@@ -50,16 +51,17 @@ Although the current model already wins against the random player, it doesn’t 
 Hence we decided to implement some heuristics to give our agent a clearer direction in earlier stages of the game 
 ## Final agent
 ### Heuristics
-Gain points when:
-Add a new tile of its symbol into the board 
-Make a combo (consecutive pieces)
-Winning match
-Lose points when:
-Opponent adds a new tile of its symbol into the board
-Opponent makes a combo
-Opponent wins the match
+Gain points when:<br>
+Add a new tile of its symbol into the board <br>
+Make a combo (consecutive pieces)<br>
+Winning match<br>
 
-We gave different scores in order to set a priority between them such as that:
+Lose points when: <br>
+Opponent adds a new tile of its symbol into the board<br>
+Opponent makes a combo<br>
+Opponent wins the match<br>
+
+We gave different scores in order to set a priority between them such as that:<br>
 
 Winning match > add a new tile > make a combo (4 or less)
 
